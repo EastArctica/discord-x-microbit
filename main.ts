@@ -8,14 +8,19 @@ serial.onDataReceived(serial.delimiters(Delimiters.NewLine), function () {
 });
 
 // Setup buttons
-function handleButton(button: Button) {
-    return () => windowManager.currentWindow.onButton(button);
+function handleButton(event: ButtonEvent) {
+    return () => windowManager.currentWindow.onButtonEvent(event);
 }
 
-input.onButtonPressed(Button.A, handleButton(Button.A));
-input.onButtonPressed(Button.B, handleButton(Button.B));
-input.onButtonPressed(Button.AB, handleButton(Button.AB));
-input.onLogoEvent(TouchButtonEvent.Pressed, () => windowManager.currentWindow.onTouch());
+input.onButtonPressed(Button.A, handleButton(ButtonEvent.APressed));
+input.onButtonPressed(Button.B, handleButton(ButtonEvent.BPressed));
+input.onButtonPressed(Button.AB, handleButton(ButtonEvent.ABPressed));
+
+// Logo touches
+input.onLogoEvent(TouchButtonEvent.Touched, handleButton(ButtonEvent.TouchDown));
+input.onLogoEvent(TouchButtonEvent.Released, handleButton(ButtonEvent.TouchUp));
+input.onLogoEvent(TouchButtonEvent.Pressed, handleButton(ButtonEvent.TouchPressed));
+input.onLogoEvent(TouchButtonEvent.LongPressed, handleButton(ButtonEvent.TouchLongPressed));
 
 // Main loop, 60 fps (maybe, there's no deltaTime...)
 loops.everyInterval(1000 / 60, () => {

@@ -1,13 +1,11 @@
 # Errors
-- 100
- - switchWindow called with invalid window.
+- `100`: switchWindow called with invalid window.
 
 # TODO
 - Fix bug when switching windows that the previous window's render function is called for a frame.
 - Add deltaTime to rendering? Might not be possible...
-- Give Window access to Touch, Button, Pin, etc. (Pressed, Down, Up)
 - In typing, allow user to hold button to scroll between letters
-
+- Implement button up and down for A, B, and AB (Currently not implemented in the microbit)
 
 
 > Open this page at [https://eastarctica.github.io/discord-x-microbit/](https://eastarctica.github.io/discord-x-microbit/)

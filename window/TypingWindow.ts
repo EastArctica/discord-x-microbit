@@ -23,20 +23,20 @@ class TypingWindow extends Window {
         }
     }
 
-    onButton(button: Button) {
-        if (button == Button.A) {
+    onButtonEvent(button: ButtonEvent) {
+        if (button == ButtonEvent.APressed) {
             let currentChar = this.currentLetter.charCodeAt(0);
             if (currentChar == 97) // "a"
                 return;
             
             this.currentLetter = String.fromCharCode(currentChar - 1);
-        } else if (button == Button.B) {
+        } else if (button == ButtonEvent.BPressed) {
             let currentChar = this.currentLetter.charCodeAt(0);
             if (currentChar == 122) // "z"
                 return;
 
             this.currentLetter = String.fromCharCode(currentChar + 1);
-        } else if (button == Button.AB) {
+        } else if (button == ButtonEvent.ABPressed) {
             this.message += this.currentLetter;
             this.currentLetter = "a";
 
@@ -48,10 +48,8 @@ class TypingWindow extends Window {
             basic.clearScreen();
             basic.pause(20);
             this.shouldRender = true;
+        } else if (button == ButtonEvent.TouchPressed) {
+            this.send();
         }
-    }
-
-    onTouch() {
-        this.send();
     }
 }

@@ -14,8 +14,8 @@ class HomeWindow extends Window {
         this.shouldRender = true;
     }
 
-    onButton(button: Button) {
-        if (button == Button.AB) {
+    onButtonEvent(button: ButtonEvent) {
+        if (button == ButtonEvent.ABPressed) {
             this.windowManager.switchWindow(WindowType.TYPING);
         }
     }

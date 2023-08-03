@@ -12,7 +12,8 @@
         "types.ts",
         "window/SelectionWindow.ts",
         "WindowManager.ts",
-        "window/HomeWindow.ts"
+        "window/HomeWindow.ts",
+        "ButtonEvent.ts"
     ],
     "testFiles": [],
     "targetVersions": {

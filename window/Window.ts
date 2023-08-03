@@ -12,6 +12,5 @@ class Window {
     // These functions should get overridden
     public render() {}
     public onSerial(line: string) {}
-    public onButton(button: Button) {}
-    public onTouch() {}
+    public onButtonEvent(button: ButtonEvent) {}
 }
