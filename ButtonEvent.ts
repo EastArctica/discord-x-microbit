@@ -1,8 +1,12 @@
 enum ButtonEvent {
     // A
+    ADown,
+    AUp,
     APressed,
     
     // B
+    BDown,
+    BUp,
     BPressed,
 
     // AB

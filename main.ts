@@ -26,3 +26,26 @@ input.onLogoEvent(TouchButtonEvent.LongPressed, handleButton(ButtonEvent.TouchLo
 loops.everyInterval(1000 / 60, () => {
     windowManager.currentWindow.render();
 });
+
+// We need to handle A, B, and AB button up and touched and released events ourselves
+let wasADown = input.buttonIsPressed(Button.A);
+let wasBDown = input.buttonIsPressed(Button.B);
+forever(() => {
+    let isADown = input.buttonIsPressed(Button.A);
+    if (wasADown && !isADown) {
+        // A has been released
+        handleButton(ButtonEvent.AUp);
+    } else if (!wasADown && isADown) {
+        // A has been pressed
+        handleButton(ButtonEvent.ADown);
+    }
+
+    let isBDown = input.buttonIsPressed(Button.B);
+    if (wasBDown && !isBDown) {
+        // B has been released
+        handleButton(ButtonEvent.BUp);
+    } else if (!wasBDown && isBDown) {
+        // B has been pressed
+        handleButton(ButtonEvent.BDown);
+    }
+});
